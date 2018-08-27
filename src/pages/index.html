@@ -1,0 +1,57 @@
+<div class="context">
+	<div id="suggest-input" >
+		<div class="suggest-input-wrapper" ref="input" @click.self="activateInput(true)">
+				<span class="item"
+				v-for="(tag, ind) in tags" v-bind:data-index="ind" 
+				
+				v-on:click="selectItem($event.currentTarget)"
+				v-bind:class="{'selected': _checkSelect(ind)}" tabindex=0
+				>
+				{{tag}}
+			</span>
+			<span 
+				ref="mainInput"
+				contenteditable="plaintext-only" class="mainInput"
+				v-on:input="setValue($event.currentTarget)"
+				v-on:focus="setInputState(true)"
+				v-on:blur="setInputState(false)"
+				tabindex=0></span>
+		</div>
+		<div class="messageStr" tabindex="-1">
+			<div class="undoList">
+					<div class="msgItem" v-for="(ritem, index) in undoBuffer" @click="restoreItem(index)" v-bind:data-index="index">
+							<div class="clickItem"><u>Restore</u> ‘{{ritem.value}}’</div>
+						</div>
+			</div>
+			<div class="msgItem" v-show="isTagFocus != null">
+					<div class="clickItem"><u>Go to block</u> (Double click),</div>
+				<div class="clickItem" @click="clearSelectedTags"><u>Delete</u> (Backspace)</div>	
+			</div>
+		</div>
+		<div class="suggest-popup" v-show="shouldShowPopup()"
+			@mouseenter="mouseInPopup = true"
+			@mouseleave="mouseInPopup = false"
+			v-bind:class="{'shift': (this.undoBuffer.length != 0)}"
+		>
+			<div class="suggest-popup-wrapper" >
+					<div class="new-block block-item" 
+						v-show="value != ''"
+						v-bind:class="{active: _calcActive(-1,-1)}"
+						v-on:mouseover="_selectSuggestItem(-1, -1, false)"
+						v-on:click="_selectSuggestItem(-1, -1, true)"
+					>Create block ‘{{value}}’</div>					
+					<div class="group-caption-wrapper" v-for="(elem, gi) in refinedBlocks">
+							<div class="group-caption">{{elem.group}}</div>
+							<div class="block-item" 
+								v-for="(block, ii) in elem.items" 
+								v-bind:class="{active: _calcActive(gi, ii)}"
+								@mouseover="_selectSuggestItem(gi, ii, false)"
+								@click="_selectSuggestItem(gi, ii, true)"
+							>
+								{{block}}
+							</div>
+					</div>
+			</div>
+		</div>
+	</div>
+</div>

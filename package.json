@@ -1,0 +1,36 @@
+{
+  "name": "rm-stripe-vue-demo",
+  "version": "0.0.1",
+  "devDependencies": {
+    "express": "latest",
+    "fs-extra": "latest",
+    "gulp": "latest",
+    "gulp-cached": "^1.1.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-less": "^3.5.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-order": "latest",
+    "gulp-print": "^2.0.1",
+    "gulp-remember": "^0.3.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-uglify": "^2.0.0",
+    "gulp-util": "^3.0.7",
+    "gulp-vuesplit": "latest",
+    "js-string-escape": "^1.0.1",
+    "less": "^2.7.3",
+    "less-plugin-autoprefix": "^1.5.1",
+    "livereload": "^0.6.3",
+    "minimatch": "latest",
+    "path": "latest",
+    "uglify": "^0.1.5",
+    "uglify-js": "^2.8.29",
+    "vinyl-source-stream": "latest"
+  },
+  "dependencies": {
+    "normalizecss": "^3.0.0",
+    "underscore": "latest",
+    "vue": "latest",
+    "vuelidate": "^0.4.3"
+  }
+}
