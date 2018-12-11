@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Title</title>
-	<link rel="stylesheet" href="/css/main.css">
+	<link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 <div class="context">
@@ -61,12 +61,24 @@
 					</div>
 			</div>
 		</div>
+
+		<div class="suggest-input-wrapper">
+			<span class="mainInput loadingInput">Loading list of groups...</span>
+		</div>
+
+		<div class="primary-loading" @click="prState = !prState" :class="{shimmer: prState}">
+			<span class="caption">Delete Bot</span>
+		</div>
+
+		<div class="secondary-loading" @click="secState = !secState" :class="{shimmer: secState}">
+			<span class="caption">Apply Changes and Leave</span>
+		</div>
 	</div>
 </div>
 
 
-<script src="/js/libs.js"></script>
-<script src="/js/app.js"></script>
+<script src="js/libs.js"></script>
+<script src="js/app.js"></script>
 
 <script>
 	document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +

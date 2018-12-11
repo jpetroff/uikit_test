@@ -53,5 +53,17 @@
 					</div>
 			</div>
 		</div>
+
+		<div class="suggest-input-wrapper">
+			<span class="mainInput loadingInput">Loading list of groups...</span>
+		</div>
+
+		<div class="primary-loading" @click="prState = !prState" :class="{shimmer: prState}">
+			<span class="caption">Delete Bot</span>
+		</div>
+
+		<div class="secondary-loading" @click="secState = !secState" :class="{shimmer: secState}">
+			<span class="caption">Apply Changes and Leave</span>
+		</div>
 	</div>
 </div>

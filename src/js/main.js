@@ -54,7 +54,8 @@ window.app = new Vue({
 
 		mouseInPopup: false,
 		chosenByClick: false,
-		
+		prState: false,
+		secState: false
 	},
 	mounted: function() {
 		this.refinedBlocks = this.blocks;
@@ -263,7 +264,7 @@ window.app = new Vue({
 				if(this.selected.indexOf(i) == -1) {
 					newTags.push(this.tags[i]);
 				} else {
-					this._storeUndo(i, this.tags[i]);
+					// this._storeUndo(i, this.tags[i]);
 				}
 			}
 			this.tags = newTags;
@@ -299,4 +300,4 @@ window.app = new Vue({
 	}
 })
 
-app.$mount('#suggest-input');
+//app.$mount('#suggest-input');
